@@ -1,30 +1,11 @@
-import Todo from "./components/todo";
 import "./App.css";
+import Counter from "./components/Counter";
 
 function App() {
-  const todos = [
-    {
-      id: 1,
-      title: "wash dishes",
-      completed: false,
-    },
-    {
-      id: 2,
-      title: "make dinner",
-      completed: true,
-    },
-
-    {
-      id: 3,
-      title: "do anything",
-      completed: false,
-    },
-  ];
+  
   return (
     <div className="App">
-      {todos.map((todo) => {
-        return <Todo todo={todo} />;
-      })}
+      <Counter />
     </div>
   );
 }
