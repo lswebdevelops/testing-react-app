@@ -13,15 +13,36 @@ describe(Counter, () => {
     const { getByTestId, betByRole } = render(<Counter initialCount={0} />);
     const incrementBtn = screen.getByRole("button", { name: "Increment" });
     // before click happens
-    const countValue1 = Number(screen.getByTestId("count").textContent);
-    expect(countValue1).toEqual(0);
+    const countValue0 = Number(screen.getByTestId("count").textContent);
+    expect(countValue0).toEqual(0);
     // after click happens
     fireEvent.click(incrementBtn);
-    const countValue2 = Number(screen.getByTestId("count").textContent);
-    expect(countValue2).toEqual(1);
+    const countValue1 = Number(screen.getByTestId("count").textContent);
+    expect(countValue1).toEqual(1);
     // after click happens twice
     fireEvent.click(incrementBtn);
-    const countValue3 = Number(screen.getByTestId("count").textContent);
-    expect(countValue3).toEqual(2);
+    const countValue2 = Number(screen.getByTestId("count").textContent);
+    expect(countValue2).toEqual(2);
   });
+
+
+  it("count should decrement by 1 if the decrement button is clicked", () => {
+    // we have to access the button so we can test it
+    const { getByTestId, betByRole } = render(<Counter initialCount={0} />);
+    const decrementBtn = screen.getByRole("button", { name: "Decrement" });
+    // before click happens
+    const countValue0 = Number(screen.getByTestId("count").textContent);
+    expect(countValue0).toEqual(0);
+    // after click happens
+    fireEvent.click(decrementBtn);
+    const countValue1 = Number(screen.getByTestId("count").textContent);
+    expect(countValue1).toEqual(-1);
+    // after click happens twice
+    fireEvent.click(decrementBtn);
+    const countValue2 = Number(screen.getByTestId("count").textContent);
+    expect(countValue2).toEqual(-2);
+  });
+
+  
+
 });
